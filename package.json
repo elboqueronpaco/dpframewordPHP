@@ -1,0 +1,26 @@
+{
+    "name": "frontend",
+    "version": "0.0.1",
+    "description": "Frontend para proyectos",
+    "main": "package.json",
+    "scripts": {
+        "sass": "node-sass -w  -o ./public/css ./src/scss",
+        "babel": "babel -w ./src/js/ -d ./public/js/",
+        "browserify": "browserify ./src/js/index.js -d -o ./public/js/script.js -t [babelify --presets[@babel/preset-env]]",
+        "watchify": "watchify ./src/js/index.js -d -o ./public/js/script.js -t [babelify --presets[@babel/preset-env]] -v",
+        "metalangs": "concurrently \"npm run sass\" \"npm run watchify\""
+    },
+    "dependencies": {},
+    "devDependencies": {
+        "@babel/cli": "^7.1.5",
+        "@babel/core": "^7.1.6",
+        "@babel/preset-env": "^7.1.6",
+        "babelify": "^10.0.0",
+        "browserify": "^16.2.3",
+        "concurrently": "^4.1.0",
+        "node-sass": "^4.10.0",
+        "node-sass-package-importer": "^5.2.0",
+        "parallelshell": "^3.0.2",
+        "watchify": "^3.11.0"
+    }
+}
